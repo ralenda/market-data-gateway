@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway.Api", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway.Api.Tests", "MarketDataGateway.Api.Tests\MarketDataGateway.Api.Tests.csproj", "{4663A005-9F2B-477F-94BD-FCA8A0E71999}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway.Model", "MarketDataGateway.Model\MarketDataGateway.Model.csproj", "{1CABE9ED-DD00-4966-ABCB-19A2F6ACD6DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4663A005-9F2B-477F-94BD-FCA8A0E71999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4663A005-9F2B-477F-94BD-FCA8A0E71999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4663A005-9F2B-477F-94BD-FCA8A0E71999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CABE9ED-DD00-4966-ABCB-19A2F6ACD6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CABE9ED-DD00-4966-ABCB-19A2F6ACD6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CABE9ED-DD00-4966-ABCB-19A2F6ACD6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CABE9ED-DD00-4966-ABCB-19A2F6ACD6DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

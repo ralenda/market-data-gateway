@@ -10,7 +10,7 @@ public static class MarketDataGatewayWebHost
             .UseKestrel()
             .ConfigureKestrel((builderContext, options) =>
             {
-                var config = builderContext.Configuration.GetSection("Kestrel");
+                IConfigurationSection? config = builderContext.Configuration.GetSection("Kestrel");
                 options.Configure(config);
             })
             .UseStartup<Startup>();

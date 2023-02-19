@@ -9,8 +9,6 @@ namespace MarketDataGateway.Api.Controllers;
 public class MarketDataController : ControllerBase
 {
     [HttpPost]
-    public ActionResult<MarketDataContributionResponse> Contribute(MarketDataContributionRequest request)
-    {
-        return StatusCode((int) HttpStatusCode.NotImplemented);
-    }
+    public ActionResult<MarketDataContributionResponse> Contribute(MarketDataContributionRequest request) =>
+        StatusCode((int)HttpStatusCode.NotImplemented);
 }
