@@ -7,7 +7,7 @@ public class MarketDataContributionId
 {
     public MarketDataContributionId(string value) => Value = value;
 
-    public string Value { get; }
+    public string Value { get; init; }
     protected bool Equals(MarketDataContributionId other) => Value == other.Value;
 
     public override bool Equals(object? obj)

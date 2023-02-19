@@ -8,15 +8,15 @@ public class MarketDataValidation
 
     public string? Reason { get; internal set; }
 
-    public MarketDataValidation Success(MarketDataValidationId validationId) =>
-        new MarketDataValidation
+    public static MarketDataValidation Success(MarketDataValidationId validationId) =>
+        new()
         {
             Id = validationId,
             Result = MarketDataValidationResult.Valid
         };
 
-    public MarketDataValidation Failure(MarketDataValidationId validationId, string reason) =>
-        new MarketDataValidation
+    public static MarketDataValidation Failure(MarketDataValidationId validationId, string reason) =>
+        new()
         {
             Id = validationId,
             Result = MarketDataValidationResult.Invalid,

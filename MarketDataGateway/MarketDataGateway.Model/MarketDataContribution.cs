@@ -12,7 +12,7 @@ public class MarketDataContribution
 
     public static MarketDataContribution From(MarketDataContributionRequest request,
         MarketDataValidation.MarketDataValidation validation) =>
-        new MarketDataContribution
+        new()
         {
             ValidationStatus = validation,
             Quote = request.Quote
