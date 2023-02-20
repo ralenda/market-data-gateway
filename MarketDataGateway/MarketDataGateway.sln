@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway.Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway.Model.Tests", "MarketDataGateway.Model.Tests\MarketDataGateway.Model.Tests.csproj", "{980E74FF-AA78-4460-8FE5-712D76481282}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway.Infrastructure.Tests", "MarketDataGateway.Infrastructure.Tests\MarketDataGateway.Infrastructure.Tests.csproj", "{5CDC99AA-DD8D-4554-A0E6-6398562DD6D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{980E74FF-AA78-4460-8FE5-712D76481282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{980E74FF-AA78-4460-8FE5-712D76481282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{980E74FF-AA78-4460-8FE5-712D76481282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CDC99AA-DD8D-4554-A0E6-6398562DD6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CDC99AA-DD8D-4554-A0E6-6398562DD6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CDC99AA-DD8D-4554-A0E6-6398562DD6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CDC99AA-DD8D-4554-A0E6-6398562DD6D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
