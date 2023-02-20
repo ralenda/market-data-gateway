@@ -5,9 +5,7 @@ namespace MarketDataGateway.Model;
 /// </summary>
 public class MarketDataContributionId
 {
-    public MarketDataContributionId(string value) => Value = value;
-
-    public string Value { get; init; }
+    public string Value { get; private init; }
     protected bool Equals(MarketDataContributionId other) => Value == other.Value;
 
     public override bool Equals(object? obj)
@@ -37,4 +35,9 @@ public class MarketDataContributionId
 
     public static bool operator !=(MarketDataContributionId? left, MarketDataContributionId? right) =>
         !Equals(left, right);
+
+    public static MarketDataContributionId NewId()
+    {
+        return new MarketDataContributionId { Value = Guid.NewGuid().ToString() };
+    }
 }

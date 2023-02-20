@@ -3,7 +3,7 @@
 namespace MarketDataGateway.Model.Service;
 
 /// <summary>
-///     Domain service
+///     Domain service - logic to validate a contribution and store it if successful
 /// </summary>
 public class MarketDataContributionService
 {
@@ -17,6 +17,12 @@ public class MarketDataContributionService
         _contributionRepository = contributionRepository;
     }
 
+    /// <summary>
+    /// Validate a contribution and stores it if it is valid
+    /// </summary>
+    /// <param name="request">The contribution to validate and store</param>
+    /// <returns>The contribution object</returns>
+    /// <exception cref="QuoteAlreadyExistException">Thrown if a similar quote already exist in store</exception>
     public async Task<MarketDataContribution> AddContribution(MarketDataContributionRequest request)
     {
         // we probably want to check whether the quote already exist in some way (e.g., same timestamp and symbol,
@@ -27,7 +33,7 @@ public class MarketDataContributionService
             .ConfigureAwait(false);
         if (validationResult.Result == MarketDataValidationResult.Invalid)
         {
-            return MarketDataContribution.From(request, validationResult);
+            return MarketDataContribution.From(MarketDataContributionId.NewId(), request, validationResult);
         }
 
         return await _contributionRepository.Store(request, validationResult).ConfigureAwait(false);

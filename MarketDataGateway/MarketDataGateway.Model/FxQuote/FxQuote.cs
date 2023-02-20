@@ -5,15 +5,15 @@
 /// </summary>
 public class FxQuote : QuoteBase
 {
-    public FxQuote() : base(MarketDataType.FxQuote)
+    public FxQuote(CurrencyPair currencyPair, DateTimeOffset timestamp) : base(FxQuoteId.From(currencyPair, timestamp))
     {
     }
 
-    public CurrencyPair Symbol { get; }
+    public CurrencyPair Symbol => ((FxQuoteId)Id).Symbol;
 
     public decimal Bid { get; }
 
     public decimal Ask { get; }
 
-    public DateTimeOffset Timestamp { get; }
+    public DateTimeOffset Timestamp => ((FxQuoteId)Id).Timestamp;
 }

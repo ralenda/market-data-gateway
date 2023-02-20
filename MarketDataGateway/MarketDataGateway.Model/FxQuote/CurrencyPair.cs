@@ -39,4 +39,6 @@ public class CurrencyPair
         reason = null;
         return true;
     }
+
+    public override string ToString() => Value;
 }

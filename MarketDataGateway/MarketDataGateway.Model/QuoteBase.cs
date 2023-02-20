@@ -2,18 +2,26 @@
 
 public abstract class QuoteBase
 {
-    protected QuoteBase(MarketDataType type) => Type = type;
+    protected QuoteBase(QuoteId quoteId) => Id = quoteId;
 
     public QuoteId Id { get; }
 
-    public MarketDataType Type { get; }
+    public MarketDataType Type => Id.Type;
 }
 
-public class QuoteId
+public abstract class QuoteId : IEquatable<QuoteId>
 {
-    public string Value { get; }
+    public MarketDataType Type { get; }
 
-    protected bool Equals(QuoteId other) => Value == other.Value;
+    public override int GetHashCode()
+    {
+        return (int)Type;
+    }
+
+    protected QuoteId(MarketDataType type)
+    {
+        Type = type;
+    }
 
     public override bool Equals(object? obj)
     {
@@ -27,7 +35,7 @@ public class QuoteId
             return true;
         }
 
-        if (obj.GetType() != GetType())
+        if (obj.GetType() != this.GetType())
         {
             return false;
         }
@@ -35,9 +43,8 @@ public class QuoteId
         return Equals((QuoteId)obj);
     }
 
-    public override int GetHashCode() => Value.GetHashCode();
-
     public static bool operator ==(QuoteId? left, QuoteId? right) => Equals(left, right);
 
     public static bool operator !=(QuoteId? left, QuoteId? right) => !Equals(left, right);
+    public abstract bool Equals(QuoteId? other);
 }
