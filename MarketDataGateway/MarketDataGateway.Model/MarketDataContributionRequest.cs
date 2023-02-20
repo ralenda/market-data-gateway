@@ -9,8 +9,6 @@ public class MarketDataContributionRequest
     public QuoteBase Quote { get; private init; }
 
     public static MarketDataContributionRequest FxContributionRequest(CurrencyPair currencyPair, decimal bid,
-        decimal ask, DateTimeOffset timestamp)
-    {
-        return new MarketDataContributionRequest { Quote = FxQuote.FxQuote.From(currencyPair, timestamp, bid, ask) };
-    }
+        decimal ask, DateTimeOffset timestamp) =>
+        new MarketDataContributionRequest { Quote = FxQuote.FxQuote.From(currencyPair, timestamp, bid, ask) };
 }

@@ -11,17 +11,12 @@ public abstract class QuoteBase
 
 public abstract class QuoteId : IEquatable<QuoteId>
 {
+    protected QuoteId(MarketDataType type) => Type = type;
+
     public MarketDataType Type { get; }
+    public abstract bool Equals(QuoteId? other);
 
-    public override int GetHashCode()
-    {
-        return (int)Type;
-    }
-
-    protected QuoteId(MarketDataType type)
-    {
-        Type = type;
-    }
+    public override int GetHashCode() => (int)Type;
 
     public override bool Equals(object? obj)
     {
@@ -35,7 +30,7 @@ public abstract class QuoteId : IEquatable<QuoteId>
             return true;
         }
 
-        if (obj.GetType() != this.GetType())
+        if (obj.GetType() != GetType())
         {
             return false;
         }
@@ -46,5 +41,4 @@ public abstract class QuoteId : IEquatable<QuoteId>
     public static bool operator ==(QuoteId? left, QuoteId? right) => Equals(left, right);
 
     public static bool operator !=(QuoteId? left, QuoteId? right) => !Equals(left, right);
-    public abstract bool Equals(QuoteId? other);
 }

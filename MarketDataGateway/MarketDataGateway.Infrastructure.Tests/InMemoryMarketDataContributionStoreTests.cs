@@ -8,5 +8,6 @@ namespace MarketDataGateway.Infrastructure.Tests;
 [TestFixture]
 public class InMemoryMarketDataContributionStoreTests : MarketDataContributionRepositoryTestBase
 {
-    protected override IMarketDataContributionRepository GetRepository() => new InMemoryMarketDataContributionRepository();
+    protected override IMarketDataContributionRepository GetRepository() =>
+        new InMemoryMarketDataContributionRepository();
 }

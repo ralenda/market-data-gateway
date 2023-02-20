@@ -14,7 +14,7 @@ public class MarketDataContribution
         MarketDataValidation.MarketDataValidation validation) =>
         new()
         {
-            Id= id,
+            Id = id,
             ValidationStatus = validation,
             Quote = request.Quote
         };

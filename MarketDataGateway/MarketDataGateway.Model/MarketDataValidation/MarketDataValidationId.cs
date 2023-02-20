@@ -36,5 +36,5 @@ public class MarketDataValidationId
     ///     Creates a new ValidationId (Guid) - normally this should be assigned by the validation service
     ///     but this can be useful for stubbing
     /// </summary>
-    public static MarketDataValidationId NewId() => new MarketDataValidationId { Value = Guid.NewGuid().ToString() };
+    public static MarketDataValidationId NewId() => new() { Value = Guid.NewGuid().ToString() };
 }

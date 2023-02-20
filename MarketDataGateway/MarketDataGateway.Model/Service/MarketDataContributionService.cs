@@ -18,7 +18,7 @@ public class MarketDataContributionService
     }
 
     /// <summary>
-    /// Validate a contribution and stores it if it is valid
+    ///     Validate a contribution and stores it if it is valid
     /// </summary>
     /// <param name="request">The contribution to validate and store</param>
     /// <returns>The contribution object</returns>

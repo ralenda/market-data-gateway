@@ -17,8 +17,6 @@ public class FxQuote : QuoteBase
 
     public DateTimeOffset Timestamp => ((FxQuoteId)Id).Timestamp;
 
-    public static FxQuote From(CurrencyPair currencyPair, DateTimeOffset timestamp, decimal bid, decimal ask)
-    {
-        return new FxQuote(currencyPair, timestamp) { Bid = bid, Ask = ask };
-    }
+    public static FxQuote From(CurrencyPair currencyPair, DateTimeOffset timestamp, decimal bid, decimal ask) =>
+        new FxQuote(currencyPair, timestamp) { Bid = bid, Ask = ask };
 }

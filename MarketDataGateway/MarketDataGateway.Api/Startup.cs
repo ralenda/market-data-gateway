@@ -1,4 +1,10 @@
-﻿namespace MarketDataGateway.Api;
+﻿using MarketDataGateway.Infrastructure.MarketDataContributionRepository;
+using MarketDataGateway.Infrastructure.MarketDataValidation;
+using MarketDataGateway.Model;
+using MarketDataGateway.Model.MarketDataValidation;
+using MarketDataGateway.Model.Service;
+
+namespace MarketDataGateway.Api;
 
 public class Startup
 {
@@ -12,6 +18,11 @@ public class Startup
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+
+        // Register Application services
+        services.AddSingleton<IMarketDataContributionRepository, InMemoryMarketDataContributionRepository>();
+        services.AddSingleton<IMarketDataValidationService, StubMarketDataValidationService>();
+        services.AddScoped<MarketDataContributionService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

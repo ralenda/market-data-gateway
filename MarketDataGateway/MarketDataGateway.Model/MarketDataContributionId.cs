@@ -36,8 +36,6 @@ public class MarketDataContributionId
     public static bool operator !=(MarketDataContributionId? left, MarketDataContributionId? right) =>
         !Equals(left, right);
 
-    public static MarketDataContributionId NewId()
-    {
-        return new MarketDataContributionId { Value = Guid.NewGuid().ToString() };
-    }
+    public static MarketDataContributionId NewId() =>
+        new MarketDataContributionId { Value = Guid.NewGuid().ToString() };
 }

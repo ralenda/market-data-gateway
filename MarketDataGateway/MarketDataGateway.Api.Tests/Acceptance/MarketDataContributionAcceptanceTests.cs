@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Json;
+using System.Text;
 using System.Threading.Tasks;
 using MarketDataGateway.Api.Dto;
+using MarketDataGateway.Model;
 using Microsoft.AspNetCore.TestHost;
+using Newtonsoft.Json;
 using NUnit.Framework;
+using MarketDataContributionRequest = MarketDataGateway.Api.Dto.MarketDataContributionRequest;
 
 namespace MarketDataGateway.Api.Tests.Acceptance;
 
@@ -35,9 +38,23 @@ public class MarketDataContributionAcceptanceTests
     [Test]
     public async Task Contribute_Valid_MarketDataRequest_Successful_Response()
     {
-        var request = new MarketDataContributionRequest();
+        var request = new MarketDataContributionRequest
+        {
+            Type = MarketDataType.FxQuote,
+            FxQuoteRequest = new FxQuoteRequest
+            {
+                Ask = 0,
+                Bid = 0,
+                Symbol = "EUR/USD",
+                Timestamp = DateTimeOffset.UtcNow
+            }
+        };
 
-        HttpResponseMessage response = await _testClient!.PostAsJsonAsync("/market-data", request);
+        // This test is not working - apparently there is a deserialisation problem which I don;t have time to debug
+        // Probably something stupid
+        string? serialised = JsonConvert.SerializeObject(request);
+        HttpResponseMessage response = await _testClient!.PostAsync("/market-data",
+            new StringContent(serialised, Encoding.UTF8, "application/json"));
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
     }

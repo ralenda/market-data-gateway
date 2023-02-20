@@ -5,7 +5,7 @@ public interface IMarketDataContributionRepository
     public Task<MarketDataContribution> Get(MarketDataContributionId id);
 
     /// <summary>
-    /// Stores a new contribution returns the corresponding object.
+    ///     Stores a new contribution returns the corresponding object.
     /// </summary>
     /// <param name="contribution">The contribution to store</param>
     /// <param name="validationResult">The validation result</param>
